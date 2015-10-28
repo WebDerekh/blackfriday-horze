@@ -42,7 +42,11 @@ header{
 		> * {padding-left: 1.25em;}
 		i{font-size:120%;}
 	}
-	.horze-logo img{width: 100%;}
+	.horze-logo img{
+		width: 100%;
+		
+	    @include media-breakpoint-up(xl) {width: 80%;}
+	}
 }
 
 footer{
@@ -77,6 +81,24 @@ footer{
      .content-center{
     	position: relative;
     	width:100%;
+			
+		//Fallback for mobile orientation
+		@media (orientation: landscape) and (max-width: 47.9em) {
+			visibility: hidden;
+
+			&::after {
+			    content: 'Please, use your mobile device vertically';
+			    font-size: 1.3rem;
+			    text-transform: uppercase;
+			    font-weight: bold;
+			    display: block;
+			    position: absolute;
+			    top: 50%;
+			    width: 100%;
+			    visibility: visible;
+			    transform: translateY(-50%);
+			}
+		}
     }
 
     // Hide layouts
@@ -145,10 +167,12 @@ footer{
 
 	    .input-group-addon{
 			cursor: pointer;
-			transition: color 0.7s ease;
+			transition: all 0.7s ease;
+			background-color: transparent;
 
 	    	&:hover{
 	    		color:#fff;
+	    		text-shadow: 0 0 2px #fff;
 
 			}
 	    }
@@ -161,19 +185,36 @@ footer{
 		width: 100%;
 		top: 35%;
 
+		.fa-5x{
+			@include media-breakpoint-down(xs) {
+    			font-size:2em;
+    		}
+		}
+
 		h2{
 			font-size: 2.35rem;
 			font-weight: bold;
 			margin-top: 1.4rem;
+
+			@include media-breakpoint-down(xs) {
+				margin-top: 0.5rem;
+    			font-size:1.4rem;
+    		}
 		}
 
 		h3{
 			font-size: 1.5rem;
 			margin-top: 3rem;
+
+			@include media-breakpoint-down(xs) {
+				margin-top: 1rem;
+				font-size: 0.75rem;
+			}
 		}
 
 		small{
-			margin-top: 2.8rem;
+			margin-top: 1rem;
+    		display: block;
 		}
 	}
 
@@ -181,7 +222,7 @@ footer{
     .bf-countdown{
     	margin-top: 5%;
 
-    	@include media-breakpoint-down(xs) {
+    	@include media-breakpoint-down(sm) {
     		margin-top: 10%;
     	}
     }
@@ -233,13 +274,44 @@ footer{
 
     .input-group{
     	padding-top: 1.4rem;
+
+		@include media-breakpoint-down(xs) {
+			padding-top: 0.8rem;
+		}
 	}
 }
 
 
 .startedBFlayout{
-	h2{margin:1rem auto;}
-	h3{font-weight: normal}
+	.display-4{
+		margin:1rem auto;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 2.375rem;
+		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 1.275rem;
+		}
+	}
+
+	p{
+		@include media-breakpoint-down(xs) {
+			font-size: 0.75rem;
+		}
+	}
+
+	h3{
+		font-weight: normal;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 1.3rem;
+		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 0.875rem;
+		}
+	}
 
 	.bf-countdown{
 	    border: 3px solid #fff;
@@ -270,6 +342,10 @@ footer{
 			text-decoration: none;
 			background: #eee;
 		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 1rem;
+		}
 	}
 }
 
@@ -284,13 +360,26 @@ footer{
 	background: url('../../images/background.png') 10% 50% no-repeat;
 	background-size: 55%;
 	z-index:-1;
+
+	@include media-breakpoint-down(lg) {background-size: 75%;}
+	@include media-breakpoint-down(md) {background-size: 100%;}
 }
 
 .background-left{
 	right:45%;
     transform: scaleX(-1);
+
+    @include media-breakpoint-down(sm) {
+		display: none;
+	}
 }
 
 .background-right{
 	left:45%;
+
+	@include media-breakpoint-down(sm) {
+		background-size: 100%;
+		width: 100%;
+		left: 0;
+	}
 }

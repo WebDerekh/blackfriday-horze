@@ -95,13 +95,13 @@
 
       <div class="content-center row startedBFlayout">
         <div class="layout-content">
-          <img class="col-xl-6 col-xl-offset-9" src="images/Black_friday_sale_logo.svg" alt="Black Friday">
-          <h2 class="display-4 col-xl-22 col-xl-offset-1">And the winner is...</h2>
-          <p class="col-xl-22 col-xl-offset-1">The winner of the drawing for 1000€ is</p>
-          <h3 class="col-xl-22 col-xl-offset-1"><b>Sebastian Koller</b> from Norway</h3>
+          <img class="col-xs-14 col-xs-offset-5 col-sm-10 col-sm-offset-6 col-md-8 col-md-offset-8 col-lg-6 col-lg-offset-9" src="images/Black_friday_sale_logo.svg" alt="Black Friday">
+          <h2 class="display-4 col-xs-22 col-xs-offset-1">And the winner is...</h2>
+          <p class="col-xs-22 col-xs-offset-1">The winner of the drawing for 1000€ is</p>
+          <h3 class="col-xs-22 col-xs-offset-1"><b class="winner-bf"></b> from <span class="winner-country"></span></h3>
         </div>
         <!-- COUNTDOWN BLACK FRIDAY -->
-        <div class="bf-countdown col-xl-8 col-xl-offset-8">
+        <div class="bf-countdown col-xs-20 col-xs-offset-2 col-sm-12 col-sm-offset-6 col-sm-12 col-sm-offset-6 col-lg-8 col-lg-offset-8">
           <h5>Black Friday Sale ends in</h5>
           <div class="countdown"></div>
           <a href="http://horze.com" class="btn-to-shop">Get shopping</a> 
@@ -111,7 +111,15 @@
 
       <div class="content-center row endedBFlayout">
         <div class="layout-content">
-          test after
+          <h3>Thank you for this year!</h3>
+
+          <!-- COUNTDOWN TO BLACK FRIDAY -->
+          <div class="bf-countdown">
+            <img class="blackfriday-logo" src="images/Black_friday_sale_logo.svg" alt="Black Friday">
+            <h5>Come next year</h5>
+            <div class="countdown"></div> 
+          </div>
+          <!-- COUNTDOWN END -->
         </div>
       </div>
       
@@ -124,9 +132,9 @@
           </div>
           <div class="col-md-12">
             <nav class="nav">
-              <a class="nav-link" href="#">Terms</a>
-              <a class="nav-link" href="#">Privacy</a>
-              <a class="nav-link" href="#">Security</a>
+              <a class="nav-link" href="$url('Page-Show','cid','terms')$">Terms</a>
+              <a class="nav-link" href="$url('Page-Show','cid','privacy-policy')$">Privacy</a>
+              <a class="nav-link" href="$url('Page-Show','cid','security-policy')$">Security</a>
             </nav>
           </div>
         </div>

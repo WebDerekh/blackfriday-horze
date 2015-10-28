@@ -17,24 +17,46 @@ var COUNTDOWN_TRANSLATIONS = {
 
 var	formBF = $('.bf-form > *'),
 	beforeBFlayout = $('.beforeBFlayout'),
-	startedBFlayout = $('.startedBFlayout');
-	endedBFlayout = $('.endedBFlayout');
+	startedBFlayout = $('.startedBFlayout'),
+	endedBFlayout = $('.endedBFlayout'),
+	homeLink = location.hostname,
+	winnerBF = 'Sebastian Koller',
+	winnerCountry = 'Norway';
 
 
 //TweemMax Animations
 function showBG (){
 	var $bgLeft = $('.background-left'),
-		$bgRight = $('.background-right'),
-		tweenBGleft = TweenMax.to($bgLeft, 3.5, {
+		$bgRight = $('.background-right')
+
+	if ( $(window).width() > 768 ){
+		
+		var	tweenBGleft = TweenMax.to($bgLeft, 3.5, {
 			right:"50%", 
 			autoAlpha:"0.4",
 			ease: Power4.easeOut
-		}),
-		tweenBGright = TweenMax.to($bgRight, 3.5, {
-			left:"50%", 
-			autoAlpha:"0.4",
-			ease: Power4.easeOut
-		});
+			}),
+			tweenBGright = TweenMax.to($bgRight, 3.5, {
+				left:"50%", 
+				autoAlpha:"0.4",
+				ease: Power4.easeOut
+			});
+	}
+	else{
+		var	tweenBGright = TweenMax.fromTo($bgRight, 3.5, {
+				left:"-5%", 
+				autoAlpha:"0",
+
+			},
+
+			{
+				left:"0%", 
+				autoAlpha:"0.2",
+				ease: Power4.easeOut
+			});
+	}
+
+	
 }
 
 
@@ -105,19 +127,23 @@ function setCountdown(timeString, layout, onFinish) {
 }
 
 function endedBF(){
-	setCountdown(144884160000000000, startedBFlayout, endedBF);
+	setCountdown(1480032000000, endedBFlayout, endedBF);
 }
 
 function afterBF(){
-	setCountdown(1448841600000, startedBFlayout, afterBF);
+	setCountdown(1448841600000, startedBFlayout, endedBF);
 }
 
 function startedBF(){
+	$('.winner-bf').html(winnerBF);
+	$('.winner-country').html(winnerCountry);
 	setCountdown(1448668800000, startedBFlayout, afterBF);
 }
 
 
 $( document ).ready(function() {
+	$('.horze-logo a').attr('href', homeLink);
+
 	showBG ();
 	setCountdown(1448582400000, beforeBFlayout, startedBF); 
 
@@ -131,3 +157,5 @@ $( document ).ready(function() {
 	});
 
 });
+
+$( document ).resize(showBG);
