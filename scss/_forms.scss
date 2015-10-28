@@ -8,7 +8,7 @@
   // // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   // height: $input-height;
   padding: $input-padding-y $input-padding-x;
-  font-size: $font-size-base;
+  font-size: $font-size-base * 0.875;
   line-height: $line-height;
   color: $input-color;
   background-color: $input-bg;
@@ -154,7 +154,7 @@
 .form-control-lg {
   // height: $input-height-lg;
   padding: $input-padding-y-lg $input-padding-x-lg;
-  font-size: $font-size-lg;
+  font-size: $font-size-lg * 0.875;
   line-height: $line-height-lg;
   border-radius: $input-border-radius-lg;
 }
@@ -389,7 +389,7 @@ input[type="checkbox"] {
 .form-inline {
 
   // Kick in the inline
-  @include media-breakpoint-up(sm) {
+  @include media-breakpoint-up(xs) {
     // Inline-block all the things for "inline"
     .form-group {
       display: inline-block;
@@ -416,7 +416,13 @@ input[type="checkbox"] {
       .input-group-addon,
       .input-group-btn,
       .form-control {
-        width: auto;
+        padding: $input-padding-y-lg $input-padding-x-lg;
+        font-size: $font-size-base * 0.875;
+
+        @include media-breakpoint-down(xs) {
+          padding: $input-padding-y-sm $input-padding-x-sm;
+          font-size: $font-size-base * 0.75;
+        }
       }
     }
 

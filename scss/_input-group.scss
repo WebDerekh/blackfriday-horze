@@ -80,14 +80,14 @@
 //
 
 .input-group-addon {
-  padding: $input-padding-y $input-padding-x;
+  padding: $input-padding-y 0;
   font-size: $font-size-base;
-  font-weight: normal;
+  font-weight: $btn-font-weight;
   line-height: 1;
   color: $input-color;
   text-align: center;
   background-color: $input-group-addon-bg;
-  border: 1px solid $input-group-addon-border-color;
+  border: $border-width solid $input-group-addon-border-color;
   @include border-radius($border-radius);
 
   // Sizing
