@@ -1,0 +1,385 @@
+html, body{
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+html{
+	height: 100%;
+}
+
+body {
+	min-height: 100%;
+	overflow:hidden;
+}
+
+h1,h2,h3,h5{text-transform: uppercase;}
+
+h3{font-weight: bold;}
+
+#guidelines{
+
+	.modal-body{
+		max-height: 65vh;
+		overflow: scroll;
+	}
+}
+
+small{
+	@include media-breakpoint-down(xs) {
+		font-size:65%;
+	}
+}
+
+header{
+	position:fixed;
+	width: 100%;
+	top: 1.4em;
+	font-size:0.875rem;
+	
+	.header-left{
+		text-align: right;
+
+		> * {padding-left: 1.25em;}
+		i{font-size:120%;}
+	}
+	.horze-logo img{
+		width: 100%;
+		
+	    @include media-breakpoint-up(xl) {width: 80%;}
+	}
+}
+
+footer{
+	position: fixed;
+	width: 100%;
+	bottom: 1rem;
+	font-size:0.875rem;
+
+	nav{
+		text-align:right;
+
+		a{padding-left: 1rem;}
+	}
+	@include media-breakpoint-down(sm) {
+		text-align: center;
+
+		nav{display: none;}
+	}
+	@include media-breakpoint-down(xs) {
+		font-size: 0.75rem;
+	}
+}
+
+.content{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 6rem auto 6rem;
+	height: calc(100vh - 12rem);
+    text-align: center;
+
+     .content-center{
+    	position: relative;
+    	width:100%;
+			
+		//Fallback for mobile orientation
+		@media (orientation: landscape) and (max-width: 47.9em) {
+			visibility: hidden;
+
+			&::after {
+			    content: 'Please, use your mobile device vertically';
+			    font-size: 1.3rem;
+			    text-transform: uppercase;
+			    font-weight: bold;
+			    display: block;
+			    position: absolute;
+			    top: 50%;
+			    width: 100%;
+			    visibility: visible;
+			    transform: translateY(-50%);
+			}
+		}
+    }
+
+    // Hide layouts
+	.beforeBFlayout,
+	.startedBFlayout,
+	.endedBFlayout{display: none;}
+	
+	// Form
+	.bf-form{
+		 > * {opacity: 0}
+
+		input{border-right: 0}
+
+		.privacy-protect{
+	    	display: block;
+			text-align: left;
+			margin-top: 0.5rem;
+	    }
+
+	    h1{
+	    	margin-top: 0;
+	    	margin-bottom: 4%;
+
+	    	@include media-breakpoint-down(md) {
+	    		font-size: 1.17rem;
+	    		margin-bottom: 3%;
+	    	}
+	    	@include media-breakpoint-down(xs) {
+	    		font-size: 0.875rem;
+	    	}
+	    }
+
+	    h3.display-4{
+	    	@include media-breakpoint-down(md) {
+	    		font-size: 3.075rem;
+	    		margin-top: 2%;
+	    	}
+	    	@include media-breakpoint-down(xs) {
+	    		font-size: 2.375rem;
+	    	}
+	    }
+
+
+	    h4{
+	    	margin-top: 2.7%;
+	    	margin-bottom: 0.2rem;
+	    	line-height: 140%;
+
+	    	@include media-breakpoint-down(md) {
+	    		font-size: 0.9rem;
+	    	}
+	    	@include media-breakpoint-down(xs) {
+				font-size: 0.75rem;
+	    	}
+	    }
+
+	    .guidelines{
+	    	margin-top: 1.5%;
+	    	color:#888;
+	    	z-index: 1;
+
+	    	@include media-breakpoint-down(md) {
+	    		margin-top: 1%;
+	    	}
+	    }
+
+	    .input-group-addon{
+			cursor: pointer;
+			transition: all 0.7s ease;
+			background-color: transparent;
+
+	    	&:hover{
+	    		color:#fff;
+	    		text-shadow: 0 0 2px #fff;
+
+			}
+	    }
+	}
+
+	// Confirmation
+	.bf-confirm{
+		display: none;
+		position:absolute;
+		width: 100%;
+		top: 35%;
+
+		.fa-5x{
+			@include media-breakpoint-down(xs) {
+    			font-size:2em;
+    		}
+		}
+
+		h2{
+			font-size: 2.35rem;
+			font-weight: bold;
+			margin-top: 1.4rem;
+
+			@include media-breakpoint-down(xs) {
+				margin-top: 0.5rem;
+    			font-size:1.4rem;
+    		}
+		}
+
+		h3{
+			font-size: 1.5rem;
+			margin-top: 3rem;
+
+			@include media-breakpoint-down(xs) {
+				margin-top: 1rem;
+				font-size: 0.75rem;
+			}
+		}
+
+		small{
+			margin-top: 1rem;
+    		display: block;
+		}
+	}
+
+    // Countdown
+    .bf-countdown{
+    	margin-top: 5%;
+
+    	@include media-breakpoint-down(sm) {
+    		margin-top: 10%;
+    	}
+    }
+    .blackfriday-logo{
+    	height: 55px;
+
+    	@include media-breakpoint-down(xs) {
+    		height: 30px;
+    	}
+    }
+
+    h5{
+    	margin-top: 0.9rem;
+    	margin-bottom: 0.9rem;
+
+    	@include media-breakpoint-down(md) {
+	    	margin-top: 0.5rem;
+    		margin-bottom: 0.5rem;
+	    }
+
+	    @include media-breakpoint-down(xs) {
+			font-size: 0.75rem;
+		}
+    }
+    .countdown > [class*="cd"]{
+    	display:inline-block;
+    	text-transform: uppercase;
+    	margin: 0 0.6rem;
+
+    	> .cd-num {
+    		font-size:2.5rem;
+    		font-weight: bold;
+
+
+    	}
+
+    	> .cd-value {
+    		font-size: 0.8rem;
+    	}
+    	@include media-breakpoint-down(md) {
+	    	> .cd-num {font-size:2rem;}
+	    	> .cd-value {font-size: 0.6rem;}
+	    }
+
+	    @include media-breakpoint-down(xs) {
+	    	> .cd-num {font-size:1.4rem;}
+    	}
+    }
+
+    .input-group{
+    	padding-top: 1.4rem;
+
+		@include media-breakpoint-down(xs) {
+			padding-top: 0.8rem;
+		}
+	}
+}
+
+
+.startedBFlayout{
+	.display-4{
+		margin:1rem auto;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 2.375rem;
+		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 1.275rem;
+		}
+	}
+
+	p{
+		@include media-breakpoint-down(xs) {
+			font-size: 0.75rem;
+		}
+	}
+
+	h3{
+		font-weight: normal;
+
+		@include media-breakpoint-down(sm) {
+			font-size: 1.3rem;
+		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 0.875rem;
+		}
+	}
+
+	.bf-countdown{
+	    border: 3px solid #fff;
+    	padding: 1rem 0 0;
+	}
+
+	h5{
+		font-weight: bold;
+	}
+
+	.countdown{margin-bottom: 1.1rem;}
+
+	.btn-to-shop{
+		display: block;
+		width: 95%;
+		height: auto;
+		padding:1rem;
+		margin: 2.5%;
+		color:#000;
+		background: #fff;
+		font-size:1.75rem;
+		text-transform: uppercase;
+		font-weight: bold;
+		cursor: pointer;
+		transition: color 0.7s ease;
+		
+		&:hover{
+			text-decoration: none;
+			background: #eee;
+		}
+
+		@include media-breakpoint-down(xs) {
+			font-size: 1rem;
+		}
+	}
+}
+
+
+.background-left,
+.background-right{
+	position: absolute;
+	width:50%;
+	top: 0;
+	bottom: 0;
+	opacity: 0;
+	background: url('../../images/background.png') 10% 50% no-repeat;
+	background-size: 55%;
+	z-index:-1;
+
+	@include media-breakpoint-down(lg) {background-size: 75%;}
+	@include media-breakpoint-down(md) {background-size: 100%;}
+}
+
+.background-left{
+	right:45%;
+    transform: scaleX(-1);
+
+    @include media-breakpoint-down(sm) {
+		display: none;
+	}
+}
+
+.background-right{
+	left:45%;
+
+	@include media-breakpoint-down(sm) {
+		background-size: 100%;
+		width: 100%;
+		left: 0;
+	}
+}
